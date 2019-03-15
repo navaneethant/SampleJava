@@ -1,0 +1,101 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Select Option Example 1</title>
+<link href="../assets/css/default.css" type="text/css" rel="stylesheet" />
+<link href="../assets/css/style.css" type="text/css" rel="stylesheet" />
+<style>
+#navBar {
+  background: url(../assets/img/header.png);
+  height: 50px;
+  color: #fff;
+  transition-property: all;
+  transition-duration: .4s;
+  transition-timing-function: ease-in;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1030;
+}
+
+.cogLogo {
+  margin: 5px 0 0;
+  width: 70px;
+  height: 16px;
+}
+
+.logoText {
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.viewtable {
+  margin-top: 25%;
+  margin-left: 10%;
+}
+
+.button {
+  border-radius: 5px;
+  border: 1px solid #3765a2;
+  color: #3765a2;
+  text-transform: uppercase;
+  padding: .35rem .75rem;
+  font-size: 14px;
+  font-weight: 600;
+  background-color: #fff;
+  box-shadow: 1px 1px 10px -1px #3c5e90;
+  transition: .1s ease-in;
+}
+
+.title {
+  color: #fff;
+  margin-bottom: 15px;
+  text-align: center;
+  padding-bottom: 10px;
+  font-size: 1.75rem;
+}
+</style>
+<style>
+table {
+  border-collapse: collapse;
+}
+
+table, th, td {
+  border: 1px solid black;
+}
+</style>
+</head>
+<body>
+<div>
+    <div class="row margin0" id="navBar">
+      <div class="col-lg-3">
+        <img src="./assets/img/cognizant_white.png" class="cogLogo">
+        <div class="logoText">
+          <span class="colorGreen">Digital </span> <span class="">Engineering</span>
+        </div>
+      </div>
+      <div class="col-lg-9" id="navbarResponsive">
+        <div class="navItemsBar">
+
+          <!-- <li class="navItem">
+              <span class="navLink disabledLink" routerLink="/faq" routerLinkActive="active">FAQ</span>
+            </li> -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="padding20 marginTop70">
+  <div class="title h3">Table details</div>
+  <table>
+    <tr>
+      <th th:each="table : ${tables}" th:text="${table}">
+      </td>
+    </tr>
+    <tr th:each="tableVal : ${tableValue}">
+      <td th:each="tableV : ${tableVal}" th:text="${tableV}" />
+    </tr>
+  </table>
+</div>
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+<meta name="description" content="" />
+<meta name="author" content="" />
+<link rel="icon" href="favicon.ico" />
+<!-- Bootstrap core CSS -->
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"
+  integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
+<link href="../assets/css/default.css" type="text/css" rel="stylesheet" />
+<link href="../assets/css/style.css" type="text/css" rel="stylesheet" />
+<style>
+#navBar {
+  background: url(../assets/img/header.png);
+  height: 50px;
+  color: #fff;
+  transition-property: all;
+  transition-duration: .4s;
+  transition-timing-function: ease-in;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1030;
+}
+
+.cogLogo {
+  margin: 5px 0 0;
+  width: 70px;
+  height: 16px;
+}
+
+.logoText {
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.viewtable {
+  margin-top: 25%;
+  margin-left: 10%;
+}
+
+.button {
+  border-radius: 5px;
+  border: 1px solid #3765a2;
+  color: #3765a2;
+  text-transform: uppercase;
+  padding: .35rem .75rem;
+  font-size: 14px;
+  font-weight: 600;
+  background-color: #fff;
+  box-shadow: 1px 1px 10px -1px #3c5e90;
+  transition: .1s ease-in;
+}
+
+.title {
+  color: #fff;
+  margin-bottom: 15px;
+  text-align: center;
+  padding-bottom: 10px;
+  font-size: 1.75rem;
+}
+</style>
+</head>
+<body class="gray-bg">
+  <div>
+    <div class="row margin0" id="navBar">
+      <div class="col-lg-3">
+        <img src="./assets/img/cognizant_white.png" class="cogLogo">
+        <div class="logoText">
+          <span class="colorGreen">Digital </span> <span class="">Engineering</span>
+        </div>
+      </div>
+      <div class="col-lg-9" id="navbarResponsive">
+        <div class="navItemsBar">
+
+          <!-- <li class="navItem">
+              <span class="navLink disabledLink" routerLink="/faq" routerLinkActive="active">FAQ</span>
+            </li> -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="padding20 marginTop70">
+    <form method="POST" action="/processCountry">
+      <div class="title h3">View the available tables</div>
+      <div>
+      <div class="form-group">
+        <label for="exampleFormControlSelect1">Select Table:</label> <select class="form-control " name="tabledet">
+          <option th:each="table : ${tables}" th:value="${table}" th:text="${table}" th:selected="${table}" />
+      </div>
+      <div class="form-group">
+        <input type="submit" value="Submit" class="button" />
+      </div>
+      </div>
+    </form>
+  </div>
+  <!-- jQuery-->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+  <!-- Bootstrap -->
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+    integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+  <!-- Bootstrap Validator plugin -->
+  <script src="//cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.9/validator.min.js"></script>
+</body>
+</html>
